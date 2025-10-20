@@ -12,7 +12,7 @@ const Home = () => {
       id: 2,
       nombre: "Super Metroid",
       imagen: "/src/assets/supermetroid.png",
-      descripcion: "Embarcate como Samus Aran y viaja al planeta Zebes.",
+      descripcion: "Embárcate como Samus Aran y viaja al planeta Zebes.",
     },
     {
       id: 3,
@@ -23,31 +23,31 @@ const Home = () => {
   ];
 
   return (
-    <section className="p-6">
-      <div className="text-center mb-12">
-        <h1 className="text-4xl font-orbitron text-[#00ffcc] mb-4">
+    <section>
+      <div className="text-center mb-16">
+        <h1 className="text-5xl font-extrabold text-cyan-300 mb-4 drop-shadow-[0_0_10px_#00ffcc]">
           Bienvenido a ManabiGames
         </h1>
-        <p className="text-gray-300 text-lg">
-          Explora tus juegos clásicos favoritos y sus reseñas.
+        <p className="text-gray-300 text-xl">
+          Tu portal a los clásicos inolvidables.
         </p>
       </div>
 
-      <div className="mb-12">
-        <h2 className="text-2xl font-bold text-[#ff2e9d] mb-6 text-center">
+      <div>
+        <h2 className="text-3xl font-bold text-fuchsia-400 mb-8 text-center drop-shadow-[0_0_8px_#ff2e9d]">
           Juegos Destacados
         </h2>
-        <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
           {juegosDestacados.map((juego) => (
             <JuegoCard key={juego.id} juego={juego} />
           ))}
         </div>
       </div>
 
-      <div className="text-center mt-12">
+      <div className="text-center mt-16">
         <a
           href="/juegos"
-          className="inline-block bg-[#9d00ff] hover:bg-[#6c63ff] px-6 py-3 rounded-lg text-white font-semibold transition"
+          className="inline-block bg-fuchsia-600/80 hover:bg-cyan-400/80 border-2 border-fuchsia-500 hover:border-cyan-300 px-8 py-4 rounded-lg text-white font-bold text-lg transition-all duration-300 shadow-[0_0_15px_#ff2e9d] hover:shadow-[0_0_20px_#00ffcc]"
         >
           Ver todos los juegos
         </a>

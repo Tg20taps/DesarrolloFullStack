@@ -1,29 +1,33 @@
-import { render, screen } from '@testing-library/react';
-import { BrowserRouter } from 'react-router-dom';
-import Layout from './Layout';
+import { render, screen } from "@testing-library/react";
+import { describe, it, expect } from "vitest";
+import { MemoryRouter } from "react-router-dom";
+import Layout from "./Layout";
 
-describe('Layout', () => {
-  test('renders header with logo and navigation links', () => {
+describe("Layout", () => {
+  it("debería renderizar el header y el footer", () => {
     render(
-      <BrowserRouter>
-        <Layout />
-      </BrowserRouter>
+      <MemoryRouter>
+        <Layout>
+          <div>Contenido de prueba</div>
+        </Layout>
+      </MemoryRouter>
     );
-
-    expect(screen.getByText('ManabiGames')).toBeInTheDocument();
-    expect(screen.getByText('Home')).toBeInTheDocument();
-    expect(screen.getByText('Juegos')).toBeInTheDocument();
-    expect(screen.getByText('Contacto')).toBeInTheDocument();
+    expect(screen.getByText("ManabiGames")).toBeInTheDocument();
+    expect(
+      screen.getByText(/2025 ManabiGames. Todos los derechos reservados./i)
+    ).toBeInTheDocument();
   });
 
-  test('renders footer with copyright information', () => {
+  it("debería renderizar los enlaces de navegación", () => {
     render(
-      <BrowserRouter>
-        <Layout />
-      </BrowserRouter>
+      <MemoryRouter>
+        <Layout>
+          <div>Contenido de prueba</div>
+        </Layout>
+      </MemoryRouter>
     );
-
-    const currentYear = new Date().getFullYear();
-    expect(screen.getByText(`© ${currentYear} ManabiGames. Todos los derechos reservados.`)).toBeInTheDocument();
+    expect(screen.getByRole("link", { name: /home/i })).toBeInTheDocument();
+    expect(screen.getByRole("link", { name: /juegos/i })).toBeInTheDocument();
+    expect(screen.getByRole("link", { name: /contacto/i })).toBeInTheDocument();
   });
 });

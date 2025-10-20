@@ -2,20 +2,46 @@ import { Link } from "react-router-dom";
 
 const Layout = ({ children }) => {
   return (
-    <div className="min-h-screen flex flex-col bg-[#0a0a0a] text-white font-rajdhani">
-      <header className="bg-[#1a1a1a] p-4 flex justify-between items-center shadow-md">
-        <h1 className="text-2xl font-orbitron text-[#00ffcc]">ManabiGames</h1>
-        <nav className="space-x-4 text-[#ff2e9d]">
-          <Link className="hover:text-[#00ffcc]" to="/">Home</Link>
-          <Link className="hover:text-[#00ffcc]" to="/juegos">Juegos</Link>
-          <Link className="hover:text-[#00ffcc]" to="/contacto">Contacto</Link>
-        </nav>
+    <div className="min-h-screen flex flex-col bg-gray-900 text-white font-sans">
+      {/* Header con efecto de cristal y borde de neón */}
+      <header className="bg-white/5 backdrop-blur-lg border-b-2 border-cyan-300/50 shadow-lg p-4 sticky top-0 z-10">
+        <div className="container mx-auto flex justify-between items-center">
+          <h1 className="text-3xl font-bold text-cyan-300 tracking-wider">
+            ManabiGames
+          </h1>
+          <nav className="space-x-6 text-lg">
+            <Link
+              className="text-fuchsia-400 hover:text-cyan-300 transition-all duration-300 relative group"
+              to="/"
+            >
+              Home
+              <span className="absolute left-0 bottom-[-2px] w-0 h-[2px] bg-cyan-300 group-hover:w-full transition-all duration-300"></span>
+            </Link>
+            <Link
+              className="text-fuchsia-400 hover:text-cyan-300 transition-all duration-300 relative group"
+              to="/juegos"
+            >
+              Juegos
+              <span className="absolute left-0 bottom-[-2px] w-0 h-[2px] bg-cyan-300 group-hover:w-full transition-all duration-300"></span>
+            </Link>
+            <Link
+              className="text-fuchsia-400 hover:text-cyan-300 transition-all duration-300 relative group"
+              to="/contacto"
+            >
+              Contacto
+              <span className="absolute left-0 bottom-[-2px] w-0 h-[2px] bg-cyan-300 group-hover:w-full transition-all duration-300"></span>
+            </Link>
+          </nav>
+        </div>
       </header>
 
-      <main className="flex-1 p-6">{children}</main>
+      <main className="flex-1 container mx-auto p-8">{children}</main>
 
-      <footer className="bg-[#1a1a1a] p-4 text-center text-gray-400">
-        &copy; 2025 ManabiGames. Todos los derechos reservados.
+      {/* Footer con efecto de cristal y borde de neón */}
+      <footer className="bg-white/5 backdrop-blur-lg border-t-2 border-fuchsia-500/50 shadow-lg p-4 text-center text-gray-400">
+        <div className="container mx-auto">
+          &copy; 2025 ManabiGames. Todos los derechos reservados.
+        </div>
       </footer>
     </div>
   );

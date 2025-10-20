@@ -1,46 +1,29 @@
-import { render, screen } from '@testing-library/react';
-import { BrowserRouter } from 'react-router-dom';
-import JuegoCard from './JuegoCard';
+import { render, screen } from "@testing-library/react";
+import { describe, it, expect } from "vitest";
+import JuegoCard from "./JuegoCard";
 
 const mockJuego = {
   id: 1,
-  nombre: 'Test Game',
-  descripcion: 'This is a test game.',
-  imagen: '/test-image.png',
+  nombre: "The Legend of Zelda",
+  imagen: "/src/assets/zelda.png",
+  descripcion: "Una aventura épica en el reino de Hyrule.",
 };
 
-describe('JuegoCard', () => {
-  test('renders game information correctly', () => {
-    render(
-      <BrowserRouter>
-        <JuegoCard juego={mockJuego} />
-      </BrowserRouter>
-    );
+describe("JuegoCard", () => {
+  it("debería renderizar los detalles del juego correctamente", () => {
+    render(<JuegoCard juego={mockJuego} />);
 
-    expect(screen.getByText('Test Game')).toBeInTheDocument();
-    expect(screen.getByText('This is a test game.')).toBeInTheDocument();
-    expect(screen.getByAltText('Test Game')).toBeInTheDocument();
+    expect(screen.getByText("The Legend of Zelda")).toBeInTheDocument();
+    expect(
+      screen.getByText("Una aventura épica en el reino de Hyrule.")
+    ).toBeInTheDocument();
+    expect(screen.getByAltText("The Legend of Zelda")).toBeInTheDocument();
   });
 
-  test('renders "Ver Detalles" link with correct href', () => {
-    render(
-      <BrowserRouter>
-        <JuegoCard juego={mockJuego} />
-      </BrowserRouter>
-    );
+  it("debería tener un enlace con el href correcto", () => {
+    render(<JuegoCard juego={mockJuego} />);
 
-    const link = screen.getByRole('link', { name: /ver detalles/i });
-    expect(link).toHaveAttribute('href', '/juegos/1');
-  });
-
-  test('image has correct alt attribute', () => {
-    render(
-      <BrowserRouter>
-        <JuegoCard juego={mockJuego} />
-      </BrowserRouter>
-    );
-
-    const image = screen.getByRole('img');
-    expect(image).toHaveAttribute('alt', 'Test Game');
+    const link = screen.getByRole("link", { name: /ver detalle/i });
+    expect(link).toHaveAttribute("href", "/juegos/1");
   });
 });
