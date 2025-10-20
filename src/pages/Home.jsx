@@ -23,31 +23,32 @@ const Home = () => {
   ];
 
   return (
-    <section className="p-6">
-      <div className="text-center mb-12">
-        <h1 className="text-4xl font-orbitron text-[#00ffcc] mb-4">
-          Bienvenido a ManabiGames
+    <section className="container mx-auto p-6">
+      <div className="mb-16 text-center">
+        <h1 className="mb-4 text-5xl font-bold font-orbitron text-white">
+          Bienvenido a <span className="text-[#00ffcc]">ManabiGames</span>
         </h1>
-        <p className="text-gray-300 text-lg">
+        <p className="text-lg text-gray-300">
           Explora tus juegos clásicos favoritos y sus reseñas.
         </p>
       </div>
 
       <div className="mb-12">
-        <h2 className="text-2xl font-bold text-[#ff2e9d] mb-6 text-center">
+        <h2 className="relative mb-8 text-center text-3xl font-bold text-[#ff2e9d]">
           Juegos Destacados
+          <span className="absolute -bottom-2 left-1/2 h-1 w-24 -translate-x-1/2 transform rounded-full bg-[#ff2e9d]"></span>
         </h2>
-        <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {juegosDestacados.map((juego) => (
             <JuegoCard key={juego.id} juego={juego} />
           ))}
         </div>
       </div>
 
-      <div className="text-center mt-12">
+      <div className="mt-16 text-center">
         <a
           href="/juegos"
-          className="inline-block bg-[#9d00ff] hover:bg-[#6c63ff] px-6 py-3 rounded-lg text-white font-semibold transition"
+          className="inline-block rounded-lg bg-[#9d00ff] px-8 py-4 text-lg font-semibold text-white transition-all duration-300 hover:bg-[#6c63ff] hover:shadow-lg hover:shadow-[#9d00ff]/50"
         >
           Ver todos los juegos
         </a>
@@ -57,4 +58,3 @@ const Home = () => {
 };
 
 export default Home;
-
