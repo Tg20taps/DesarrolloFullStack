@@ -23,34 +23,31 @@ const Home = () => {
   ];
 
   return (
-    <section className="w-full">
-      <div className="text-center py-20 px-6 bg-black/20">
-        <h1 className="mb-4 text-5xl md:text-6xl font-bold font-orbitron text-white">
-          Bienvenido a <span className="text-[#ff00a0]">ManabiGames</span>
+    <section className="p-6">
+      <div className="text-center mb-12">
+        <h1 className="text-4xl font-orbitron text-[#00ffcc] mb-4">
+          Bienvenido a ManabiGames
         </h1>
-        <p className="text-lg text-gray-300 max-w-2xl mx-auto">
+        <p className="text-gray-300 text-lg">
           Explora tus juegos clásicos favoritos y sus reseñas.
         </p>
       </div>
 
-      <div className="py-16 px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="relative mb-12 text-center text-3xl font-bold text-[#00f6ff]">
-            Juegos Destacados
-            <span className="absolute -bottom-3 left-1/2 h-1 w-24 -translate-x-1/2 transform rounded-full bg-[#00f6ff]"></span>
-          </h2>
-          <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
-            {juegosDestacados.map((juego) => (
-              <JuegoCard key={juego.id} juego={juego} />
-            ))}
-          </div>
+      <div className="mb-12">
+        <h2 className="text-2xl font-bold text-[#ff2e9d] mb-6 text-center">
+          Juegos Destacados
+        </h2>
+        <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+          {juegosDestacados.map((juego) => (
+            <JuegoCard key={juego.id} juego={juego} />
+          ))}
         </div>
       </div>
 
-      <div className="text-center pb-20 px-6">
+      <div className="text-center mt-12">
         <a
           href="/juegos"
-          className="inline-block rounded-lg bg-[#f1c40f] px-8 py-4 text-lg font-semibold text-[#0d0221] transition-all duration-300 hover:bg-yellow-400 hover:shadow-lg hover:shadow-[#f1c40f]/50 transform hover:scale-105"
+          className="inline-block bg-[#9d00ff] hover:bg-[#6c63ff] px-6 py-3 rounded-lg text-white font-semibold transition"
         >
           Ver todos los juegos
         </a>
